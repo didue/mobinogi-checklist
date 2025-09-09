@@ -1,0 +1,21 @@
+{
+  "characters": [{ "id": 1, "name": "두디", "server": "울프" }],
+  "missions": [
+    { "id": 1, "type": "daily", "category": "main", "title": "일일 메인 과제 A", "enabled": true },
+    {
+      "id": 2,
+      "type": "weekly",
+      "category": "exchange",
+      "title": "주간 물물교환 B",
+      "enabled": true
+    },
+    { "id": 3, "type": "weekly", "category": "shop", "title": "주간 상점 C", "enabled": false }
+  ],
+  "settings": {
+    "showCategories": ["main", "exchange", "shop"]
+  },
+  "completions": [
+    { "id": 1, "characterId": 1, "missionId": 1, "periodKey": "2025-09-09" },
+    { "id": 2, "characterId": 1, "missionId": 2, "periodKey": "2025-W37" }
+  ]
+}
