@@ -1,21 +1,180 @@
 {
-  "characters": [{ "id": 1, "name": "두디", "server": "울프" }],
-  "missions": [
-    { "id": 1, "type": "daily", "category": "main", "title": "일일 메인 과제 A", "enabled": true },
+  "characters": [
+    {
+      "id": 1,
+      "name": "두디",
+      "server": "라사",
+      "majorYn": "Y"
+    },
     {
       "id": 2,
-      "type": "weekly",
-      "category": "exchange",
-      "title": "주간 물물교환 B",
-      "enabled": true
+      "name": "오넛티",
+      "server": "라사",
+      "majorYn": "N"
     },
-    { "id": 3, "type": "weekly", "category": "shop", "title": "주간 상점 C", "enabled": false }
+    {
+      "id": 3,
+      "name": "마티어스헤르하르트",
+      "server": "라사",
+      "majorYn": "N"
+    },
+    {
+      "id": 4,
+      "name": "핫토리헤이지",
+      "server": "라사",
+      "majorYn": "N"
+    },
+    {
+      "id": 5,
+      "name": "Eclisis",
+      "server": "라사",
+      "majorYn": "N"
+    }
+  ],
+  "missions": [
+    {
+      "id": 1,
+      "type": "일일 컨텐츠",
+      "category": "daily",
+      "title": "요일 던전",
+      "enabled": true,
+      "count": 1
+    },
+    {
+      "id": 2,
+      "type": "일일 컨텐츠",
+      "category": "daily",
+      "title": "검은 구멍",
+      "enabled": true,
+      "count": 3
+    },
+    {
+      "id": 3,
+      "type": "일일 컨텐츠",
+      "category": "daily",
+      "title": "소환의 결계",
+      "enabled": true,
+      "count": 2
+    },
+    {
+      "id": 4,
+      "type": "일일 컨텐츠",
+      "category": "daily",
+      "title": "일일 미션",
+      "enabled": true,
+      "count": 1
+    },
+    {
+      "id": 5,
+      "type": "일일 컨텐츠",
+      "category": "daily",
+      "title": "일일 아르바이트",
+      "enabled": true,
+      "count": 1
+    },
+    {
+      "id": 6,
+      "type": "필드보스",
+      "category": "weekly",
+      "title": "크라브바흐",
+      "enabled": true,
+      "count": 1
+    },
+    {
+      "id": 7,
+      "type": "필드보스",
+      "category": "weekly",
+      "title": "크라마",
+      "enabled": true,
+      "count": 1
+    },
+    {
+      "id": 8,
+      "type": "필드보스",
+      "category": "weekly",
+      "title": "드로흐에넴",
+      "enabled": true,
+      "count": 1
+    },
+    {
+      "id": 9,
+      "type": "어비스",
+      "category": "weekly",
+      "title": "가라앉은 유적",
+      "enabled": true,
+      "count": 1
+    },
+    {
+      "id": 10,
+      "type": "어비스",
+      "category": "weekly",
+      "title": "무너진 제단",
+      "enabled": true,
+      "count": 1
+    },
+    {
+      "id": 11,
+      "type": "어비스",
+      "category": "weekly",
+      "title": "파멸의 전당",
+      "enabled": true,
+      "count": 1
+    },
+    {
+      "id": 12,
+      "type": "레이드",
+      "category": "weekly",
+      "title": "글라스 기브넨",
+      "enabled": true,
+      "count": 1
+    },
+    {
+      "id": 13,
+      "type": "어비스",
+      "category": "weekly",
+      "title": "화이트 서큐버스",
+      "enabled": true,
+      "count": 1
+    },
+    {
+      "id": 14,
+      "type": "주간 컨텐츠",
+      "category": "weekly",
+      "title": "주말에 어비스",
+      "enabled": true,
+      "count": 1
+    },
+    {
+      "id": 15,
+      "type": "주간 컨텐츠",
+      "category": "weekly",
+      "title": "주말에는 레이드",
+      "enabled": true,
+      "count": 1
+    },
+    {
+      "id": 16,
+      "type": "주간 컨텐츠",
+      "category": "weekly",
+      "title": "아르바이트(주간멤버십)",
+      "enabled": true,
+      "count": 1
+    }
   ],
   "settings": {
-    "showCategories": ["main", "exchange", "shop"]
+    "showCategories": [
+      "daily",
+      "weekly",
+      "exchange",
+      "shop"
+    ]
   },
   "completions": [
-    { "id": 1, "characterId": 1, "missionId": 1, "periodKey": "2025-09-09" },
-    { "id": 2, "characterId": 1, "missionId": 2, "periodKey": "2025-W37" }
+    {
+      "id": "4039",
+      "characterId": 1,
+      "missionId": 2,
+      "periodKey": "2025-09-10"
+    }
   ]
 }

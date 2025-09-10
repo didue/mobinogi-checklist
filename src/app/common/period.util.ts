@@ -1,5 +1,7 @@
 // 기간키 생성 유틸: daily(YYYY-MM-DD) / weekly(YYYY-Www, ISO 주차)
 
+import { Category } from '../core/model';
+
 export function dailyKey(d = new Date()): string {
   const y = d.getFullYear();
   const m = String(d.getMonth() + 1).padStart(2, '0');
@@ -24,6 +26,6 @@ export function weeklyKey(d = new Date()): string {
   return `${date.getUTCFullYear()}-W${w}`;
 }
 
-export function periodKey(type: 'daily' | 'weekly', d = new Date()): string {
+export function periodKey(type: Category, d = new Date()): string {
   return type === 'daily' ? dailyKey(d) : weeklyKey(d);
 }

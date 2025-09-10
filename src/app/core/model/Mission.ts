@@ -7,7 +7,6 @@ export type MissionType =
   | '주간 컨텐츠'
   | '임무게시판';
 
-//
 export type Category = 'daily' | 'weekly' | 'exchange' | 'shop';
 
 export interface Mission {
@@ -17,8 +16,8 @@ export interface Mission {
   title: string; //미션타이틀
   enabled: boolean; //
   count: number; //미션횟수
-  rewards: string; //보상
-  qty: number; //수량
+  rewards?: string; //보상
+  qty?: number; //수량
 }
 
 export interface Settings {

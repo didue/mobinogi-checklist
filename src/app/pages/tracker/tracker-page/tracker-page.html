@@ -1,0 +1,50 @@
+<h2>숙제도우미</h2>
+
+<!-- 캐릭터 선택 -->
+<h3>💖 캐릭터 설정</h3>
+<div class="chars">
+  @for (ch of characters(); track ch.id) {
+  <button type="button" (click)="onSelectChar(ch.id)" [class.active]="selectedCharId() === ch.id">
+    {{ ch.name }} ({{ ch.server }}) <span *ngIf="ch.majorYn === 'Y'">🍒</span>
+  </button>
+  }
+</div>
+
+<!-- 탭 -->
+<h3>💫 목표 설정</h3>
+<nav class="tabs">
+  <button type="button" (click)="onClickTab('daily')" [class.active]="tab() === 'daily'">
+    일일
+  </button>
+  <button type="button" (click)="onClickTab('weekly')" [class.active]="tab() === 'weekly'">
+    주간
+  </button>
+  <button type="button" (click)="onClickTab('exchange')" [class.active]="tab() === 'exchange'">
+    물물교환
+  </button>
+  <button type="button" (click)="onClickTab('shop')" [class.active]="tab() === 'shop'">
+    주간상점
+  </button>
+</nav>
+
+<!-- 진행률 -->
+<section class="progress">
+  <div class="label">진행률: {{ progress() }}%</div>
+  <div class="bar"><span [style.width.%]="progress()"></span></div>
+</section>
+
+<!-- 목록 -->
+<ul class="list">
+  @if (visible().length > 0) { @for (m of visible(); track m.id) {
+  <li>
+    <app-mission-item
+      [mission]="m"
+      [state]="stateOf(m)"
+      (inc)="onInc($event)"
+      (dec)="onDec($event)"
+    ></app-mission-item>
+  </li>
+  } } @else {
+  <li class="empty">표시할 미션이 없습니다. (설정에서 ON 해보세요)</li>
+  }
+</ul>

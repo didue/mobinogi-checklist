@@ -1,0 +1,15 @@
+<article class="mission" [class.done]="state().completed">
+  <div class="info">
+    <div class="title">{{ mission().title }}</div>
+    <div class="meta">
+      <!-- <span class="pill cat">{{ mission().category }}</span> -->
+      <span class="pill type">{{ mission().type }}</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button type="button" (click)="onDec()" [disabled]="state().done <= 0">－</button>
+    <span class="count">{{ state().done }} / {{ state().needed }}</span>
+    <button type="button" (click)="onInc()" [disabled]="state().done >= state().needed">＋</button>
+  </div>
+</article>
