@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, effect, inject, signal } from '@angular/core';
+import { Component, computed, effect, HostListener, inject, signal } from '@angular/core';
 //Api
-import { Api } from '@/app/core/api.service'; // ← 네가 만든 Api 서비스
+import { Api } from '@/app/core/api.service';
 //Types
 import { Character, Completion, Mission } from '@/app/core/model';
-import { Category } from '@/app/core/model/Mission'; // 타입 별칭
+import { Category } from '@/app/core/model/Mission';
 //Utils
 import { periodKey } from '@/app/common/period.util';
 //Components
@@ -28,7 +28,7 @@ export class TrackerPage {
   // 원본 데이터 (도메인 타입 그대로)
   characters = signal<Character[]>([]);
   missionsRaw = signal<Mission[]>([]);
-  completions = signal<Completion[]>([]); // 현재 선택 캐릭터 + 해당 기간키 데이터만 유지
+  completions = signal<Completion[]>([]);
 
   // 선택 캐릭터
   selectedCharId = signal<number>(0);
@@ -156,5 +156,31 @@ export class TrackerPage {
     this.api.deleteCompletion(target.id).subscribe(() => {
       this.completions.set(this.completions().filter((c) => c.id !== target.id));
     });
+  }
+
+  //다이어로그 상태
+  dialog = signal<null | 'char' | 'goal'>(null);
+
+  openDialog(kind: 'char' | 'goal') {
+    this.dialog.set(kind);
+  }
+  closeDialog() {
+    this.dialog.set(null);
+  }
+
+  // ESC로 닫기
+  @HostListener('document:keydown.escape')
+  onEsc() {
+    this.closeDialog();
+  }
+
+  // 저장 버튼 예시 (실제 로직은 필요 시 구현)
+  saveCharSettings() {
+    // TODO: 캐릭터 설정 저장 로직
+    this.closeDialog();
+  }
+  saveGoalSettings() {
+    // TODO: 목표 설정 저장 로직
+    this.closeDialog();
   }
 }

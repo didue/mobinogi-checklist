@@ -1,50 +1,121 @@
-<h2>숙제도우미</h2>
+<main class="tracker">
+  <h2 class="header">모비노기 숙제도우미</h2>
+  <!-- 캐릭터 선택 -->
+  <article>
+    <h3>
+      <span>💖 캐릭터 설정</span>
+      <button
+        type="button"
+        class="icon-btn"
+        aria-label="캐릭터 설정 열기"
+        (click)="openDialog('char')"
+      >
+        <span class="settings-icon-mask" aria-hidden="true"></span>
+      </button>
+    </h3>
+    <div class="chars">
+      @for (ch of characters(); track ch.id) {
+      <button
+        type="button"
+        (click)="onSelectChar(ch.id)"
+        [class.active]="selectedCharId() === ch.id"
+      >
+        {{ ch.name }} ({{ ch.server }}) <span *ngIf="ch.majorYn === 'Y'">🍒</span>
+      </button>
+      }
+    </div>
+  </article>
 
-<!-- 캐릭터 선택 -->
-<h3>💖 캐릭터 설정</h3>
-<div class="chars">
-  @for (ch of characters(); track ch.id) {
-  <button type="button" (click)="onSelectChar(ch.id)" [class.active]="selectedCharId() === ch.id">
-    {{ ch.name }} ({{ ch.server }}) <span *ngIf="ch.majorYn === 'Y'">🍒</span>
-  </button>
+  <!-- 미션 탭 -->
+  <article>
+    <h3>
+      <span>💫 목표 설정</span>
+      <button
+        type="button"
+        class="icon-btn"
+        aria-label="목표 설정 열기"
+        (click)="openDialog('goal')"
+      >
+        <span class="settings-icon-mask" aria-hidden="true"></span>
+      </button>
+    </h3>
+    <nav class="tabs">
+      <button type="button" (click)="onClickTab('daily')" [class.active]="tab() === 'daily'">
+        일일
+      </button>
+      <button type="button" (click)="onClickTab('weekly')" [class.active]="tab() === 'weekly'">
+        주간
+      </button>
+      <button type="button" (click)="onClickTab('exchange')" [class.active]="tab() === 'exchange'">
+        물물교환
+      </button>
+      <button type="button" (click)="onClickTab('shop')" [class.active]="tab() === 'shop'">
+        주간상점
+      </button>
+    </nav>
+
+    <!-- 진행률 -->
+    <section class="progress">
+      <div class="label">진행률: {{ progress() }}%</div>
+      <div class="bar">
+        <span [style.width.%]="progress()" [class.completed]="progress() === 100"></span>
+      </div>
+    </section>
+  </article>
+
+  <!-- 미션목록 -->
+  <div>
+    <ul class="list">
+      @if (visible().length > 0) { @for (m of visible(); track m.id) {
+      <li>
+        <app-mission-item
+          [mission]="m"
+          [state]="stateOf(m)"
+          (inc)="onInc($event)"
+          (dec)="onDec($event)"
+        ></app-mission-item>
+      </li>
+      } } @else {
+      <li class="empty">표시할 미션이 없습니다. (설정에서 ON 해보세요)</li>
+      }
+    </ul>
+  </div>
+
+  <!-- ===== 모달: 캐릭터 설정 ===== -->
+  @if (dialog() === 'char') {
+  <div class="modal-backdrop" (click)="closeDialog()"></div>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="charDialogTitle">
+    <header class="modal-header">
+      <h4 id="charDialogTitle">캐릭터 설정</h4>
+      <button type="button" class="icon-btn" aria-label="닫기" (click)="closeDialog()">✕</button>
+    </header>
+    <div class="modal-body">
+      <!-- 여기에 캐릭터 관련 설정 UI를 넣으면 됨 -->
+      <p class="muted">주 캐릭터 선택, 표시 순서, 서버 필터 등을 배치하세요.</p>
+      <div class="dialog-actions">
+        <button class="btn ghost" (click)="closeDialog()">닫기</button>
+        <button class="btn primary" (click)="saveCharSettings()">저장</button>
+      </div>
+    </div>
+  </div>
   }
-</div>
 
-<!-- 탭 -->
-<h3>💫 목표 설정</h3>
-<nav class="tabs">
-  <button type="button" (click)="onClickTab('daily')" [class.active]="tab() === 'daily'">
-    일일
-  </button>
-  <button type="button" (click)="onClickTab('weekly')" [class.active]="tab() === 'weekly'">
-    주간
-  </button>
-  <button type="button" (click)="onClickTab('exchange')" [class.active]="tab() === 'exchange'">
-    물물교환
-  </button>
-  <button type="button" (click)="onClickTab('shop')" [class.active]="tab() === 'shop'">
-    주간상점
-  </button>
-</nav>
-
-<!-- 진행률 -->
-<section class="progress">
-  <div class="label">진행률: {{ progress() }}%</div>
-  <div class="bar"><span [style.width.%]="progress()"></span></div>
-</section>
-
-<!-- 목록 -->
-<ul class="list">
-  @if (visible().length > 0) { @for (m of visible(); track m.id) {
-  <li>
-    <app-mission-item
-      [mission]="m"
-      [state]="stateOf(m)"
-      (inc)="onInc($event)"
-      (dec)="onDec($event)"
-    ></app-mission-item>
-  </li>
-  } } @else {
-  <li class="empty">표시할 미션이 없습니다. (설정에서 ON 해보세요)</li>
+  <!-- ===== 모달: 목표 설정 ===== -->
+  @if (dialog() === 'goal') {
+  <div class="modal-backdrop" (click)="closeDialog()"></div>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="goalDialogTitle">
+    <header class="modal-header">
+      <h4 id="goalDialogTitle">목표 설정</h4>
+      <button type="button" class="icon-btn" aria-label="닫기" (click)="closeDialog()">✕</button>
+    </header>
+    <div class="modal-body">
+      <!-- 여기에 목표(미션) 표시/숨김 토글, 우선순위 등을 넣으면 됨 -->
+      <p class="muted">탭별 표시 항목, 정렬, 알림 등을 구성하세요.</p>
+      <div class="dialog-actions">
+        <button class="btn ghost" (click)="closeDialog()">닫기</button>
+        <button class="btn primary" (click)="saveGoalSettings()">저장</button>
+      </div>
+    </div>
+  </div>
   }
-</ul>
+</main>

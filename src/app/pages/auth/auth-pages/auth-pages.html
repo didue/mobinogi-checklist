@@ -1,0 +1,37 @@
+<main class="auth-container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <h2>🔐관리자 페이지</h2>
+    <!-- 비밀번호 -->
+    <div class="field">
+      <label for="pw">비밀번호</label>
+      <input
+        id="pw"
+        type="password"
+        formControlName="password"
+        placeholder="••••••"
+        [class.error]="showError(pwCtrl)"
+      />
+
+      @if (showError(pwCtrl)) {
+      <ul class="error-list">
+        @if (showError(pwCtrl, 'required')) {
+        <li>비밀번호를 입력하세요.</li>
+        } @if (showError(pwCtrl, 'minlength')) {
+        <li>6자 이상 입력하세요.</li>
+        }
+      </ul>
+      }
+
+      <!-- 간단한 강도 표시 -->
+      <div class="strength">
+        <div class="bar" [class.on]="pwStrength() >= 1"></div>
+        <div class="bar" [class.on]="pwStrength() >= 2"></div>
+        <div class="bar" [class.on]="pwStrength() >= 3"></div>
+        <div class="bar" [class.on]="pwStrength() >= 4"></div>
+      </div>
+      <small class="muted"> 강도: {{ pwStrength() }}/4 · 길이: {{ pwLength() }} </small>
+    </div>
+
+    <button class="submit" type="submit">LOGIN</button>
+  </form>
+</main>

@@ -1,0 +1,59 @@
+/* src/styles.css */
+:root {
+  /* 캠핏 톤에 맞춘 기본값(딥 그린 계열). 필요 시 여기만 교체하면 전체 톤 변경됨 */
+  --primary: #0e5a46;
+  --primary-contrast: #ffffff;
+  --bg: #0a0a0a; /* 바디 배경(데스크톱에서 비어있는 주변 영역) */
+  --surface: #ffffff; /* 중앙 모바일 박스 배경 */
+  --text: #111827; /* 본문 텍스트 */
+  --muted: #6b7280; /* 보조 텍스트 */
+  --accent: #18a16b; /* 포인트/버튼 호버 */
+  --border: #e5e7eb; /* 테두리 */
+}
+:host {
+  font-size: 1.2rem;
+  font-family: 'OngleipRyudung', Arial, sans-serif;
+}
+/* 페이지 전체를 중앙 정렬하는 캔버스 */
+html,
+body {
+  width: 100vw;
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'OngleipRyudung', system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR,
+    Apple SD Gothic Neo, Arial, sans-serif;
+  display: grid;
+  place-items: center; /* 가로/세로 중앙정렬 */
+}
+
+/* 중앙의 '모바일 화면' 박스 */
+.app-shell {
+  width: 100%;
+  max-width: 390px; /* 모바일 기준 폭 */
+  min-height: 100dvh; /* 모바일에서 꽉 차게 */
+  background: var(--surface);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 18px; /* 데스크톱에서 카드 느낌 */
+  overflow: clip; /* 라운드 밖 스크롤 숨김 */
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* 헤더 / 본문 / 푸터 */
+}
+
+/* 모바일 실제 기기에서는 라운드 없이 쭉 사용(선호에 따라 유지/제거) */
+@media (max-width: 480px) {
+  .app-shell {
+    border-radius: env(safe-area-inset-top, 0) 0 0 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+/* 스크롤 영역 기본값 정리 */
+.scroll {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
