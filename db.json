@@ -1,31 +1,31 @@
 {
   "characters": [
     {
-      "id": 1,
+      "id": "1",
       "name": "두디",
       "server": "라사",
       "majorYn": "Y"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "오넛티",
       "server": "라사",
       "majorYn": "N"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "마티어스헤르하르트",
       "server": "라사",
       "majorYn": "N"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "핫토리헤이지",
       "server": "라사",
       "majorYn": "N"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Eclisis",
       "server": "라사",
       "majorYn": "N"
@@ -33,7 +33,7 @@
   ],
   "missions": [
     {
-      "id": 1,
+      "id": "1",
       "type": "일일 컨텐츠",
       "category": "daily",
       "title": "요일 던전",
@@ -41,7 +41,7 @@
       "count": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "type": "일일 컨텐츠",
       "category": "daily",
       "title": "검은 구멍",
@@ -49,7 +49,7 @@
       "count": 3
     },
     {
-      "id": 3,
+      "id": "3",
       "type": "일일 컨텐츠",
       "category": "daily",
       "title": "소환의 결계",
@@ -57,7 +57,7 @@
       "count": 2
     },
     {
-      "id": 4,
+      "id": "4",
       "type": "일일 컨텐츠",
       "category": "daily",
       "title": "일일 미션",
@@ -65,7 +65,7 @@
       "count": 1
     },
     {
-      "id": 5,
+      "id": "5",
       "type": "일일 컨텐츠",
       "category": "daily",
       "title": "일일 아르바이트",
@@ -73,7 +73,7 @@
       "count": 1
     },
     {
-      "id": 6,
+      "id": "6",
       "type": "필드보스",
       "category": "weekly",
       "title": "크라브바흐",
@@ -81,7 +81,7 @@
       "count": 1
     },
     {
-      "id": 7,
+      "id": "7",
       "type": "필드보스",
       "category": "weekly",
       "title": "크라마",
@@ -89,7 +89,7 @@
       "count": 1
     },
     {
-      "id": 8,
+      "id": "8",
       "type": "필드보스",
       "category": "weekly",
       "title": "드로흐에넴",
@@ -97,7 +97,7 @@
       "count": 1
     },
     {
-      "id": 9,
+      "id": "9",
       "type": "어비스",
       "category": "weekly",
       "title": "가라앉은 유적",
@@ -105,7 +105,7 @@
       "count": 1
     },
     {
-      "id": 10,
+      "id": "10",
       "type": "어비스",
       "category": "weekly",
       "title": "무너진 제단",
@@ -113,7 +113,7 @@
       "count": 1
     },
     {
-      "id": 11,
+      "id": "11",
       "type": "어비스",
       "category": "weekly",
       "title": "파멸의 전당",
@@ -121,7 +121,7 @@
       "count": 1
     },
     {
-      "id": 12,
+      "id": "12",
       "type": "레이드",
       "category": "weekly",
       "title": "글라스 기브넨",
@@ -129,7 +129,7 @@
       "count": 1
     },
     {
-      "id": 13,
+      "id": "13",
       "type": "어비스",
       "category": "weekly",
       "title": "화이트 서큐버스",
@@ -137,7 +137,7 @@
       "count": 1
     },
     {
-      "id": 14,
+      "id": "14",
       "type": "주간 컨텐츠",
       "category": "weekly",
       "title": "주말에 어비스",
@@ -145,7 +145,7 @@
       "count": 1
     },
     {
-      "id": 15,
+      "id": "15",
       "type": "주간 컨텐츠",
       "category": "weekly",
       "title": "주말에는 레이드",
@@ -153,7 +153,7 @@
       "count": 1
     },
     {
-      "id": 16,
+      "id": "16",
       "type": "주간 컨텐츠",
       "category": "weekly",
       "title": "아르바이트(주간멤버십)",
@@ -175,6 +175,54 @@
       "characterId": 1,
       "missionId": 1,
       "periodKey": "2025-09-11"
+    },
+    {
+      "id": "3b8e",
+      "characterId": 1,
+      "missionId": 2,
+      "periodKey": "2025-09-11"
+    },
+    {
+      "id": "c52d",
+      "characterId": 1,
+      "missionId": 2,
+      "periodKey": "2025-09-11"
+    },
+    {
+      "id": "f568",
+      "characterId": 1,
+      "missionId": 2,
+      "periodKey": "2025-09-11"
+    },
+    {
+      "id": "125f",
+      "characterId": "1",
+      "missionId": "2",
+      "periodKey": "2025-09-12"
+    },
+    {
+      "id": "26c2",
+      "characterId": "1",
+      "missionId": "2",
+      "periodKey": "2025-09-12"
+    },
+    {
+      "id": "2763",
+      "characterId": "1",
+      "missionId": "2",
+      "periodKey": "2025-09-12"
+    },
+    {
+      "id": "d69b",
+      "characterId": "1",
+      "missionId": "3",
+      "periodKey": "2025-09-12"
+    },
+    {
+      "id": "9fbf",
+      "characterId": "1",
+      "missionId": "3",
+      "periodKey": "2025-09-12"
     }
   ]
 }
